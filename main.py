@@ -117,7 +117,7 @@ def main(page: ft.Page):
 
     t=ft.Text(value="pAsWoRd ChEcKeR", 
               size= 70, 
-              font_family="Monocraft")
+              font_family="Monocraft",)
 
     tf=ft.TextField(label="",
                     border=ft.InputBorder.UNDERLINE,
@@ -128,29 +128,43 @@ def main(page: ft.Page):
     t2=ft.Text(value="",
                size=20, 
                color=ft.colors.BLACK,
-               animate_opacity=300)
+               animate_opacity=300,
+               font_family="Monocraft")
     
     t3=ft.Text(value="",
                size=20, 
                color=ft.colors.BLACK,
-               animate_opacity=300)   
+               animate_opacity=300,
+               font_family="Monocraft")   
      
     t4=ft.Text(value="",size=20, 
                color=ft.colors.BLACK,
-               animate_opacity=300)
+               animate_opacity=300,
+               font_family="Monocraft")
     
     t5=ft.Text(value="",
                size=20, 
-               color=ft.colors.BLACK,animate_opacity=300)
+               color=ft.colors.BLACK,animate_opacity=300,
+               font_family="Monocraft")
+    
     t12=ft.Text(value="",
                size=20, 
-               color=ft.colors.BLACK,animate_opacity=300)
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
-    contfthetext = ft.Container(content=ft.Text(value="Rule 1"))
+               color=ft.colors.BLACK,animate_opacity=300,
+               font_family="Monocraft")
+    
+
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1",
+                                                font_family="Monocraft"))
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1", 
+                                                font_family="Monocraft"))
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1", 
+                                                font_family="Monocraft"))
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1", 
+                                                font_family="Monocraft"))
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1",
+                                                font_family="Monocraft"))
+    contfthetext = ft.Container(content=ft.Text(value="Rule 1",
+                                                font_family="Monocraft"))
     
     cont1= ft.Container(content=t12, 
                         bgcolor=ft.Colors.RED_100, 
