@@ -241,7 +241,7 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
-    
+    #a
     cont= ft.Container(content=t2, 
                        bgcolor=ft.Colors.RED_100, 
                        animate_opacity=300, 
