@@ -192,6 +192,9 @@ def main(page: ft.Page):
                 pase1=5
                 page.update()
             
+            elif limonada4==True and cont3.bgcolor== ft.Colors.GREEN_100:
+                pase1=5
+            
             else:
                 if limonada4 == False and cont3.bgcolor== ft.Colors.GREEN_100:
                     colm4.opacity=0
@@ -203,6 +206,33 @@ def main(page: ft.Page):
                     cont3.border=ft.border.all(1, ft.Colors.RED)
                     page.update()
                 colm4.opacity=1
+                page.update()
+
+        if pase1 >= 5:
+            if limonada3 == True and cont4.bgcolor== ft.Colors.RED_100:
+                colm5.opacity=0
+                page.update()
+                await asyncio.sleep(0.32)
+                contfthetext5.bgcolor=ft.Colors.GREEN_300
+                contfthetext5.border=ft.border.all(1, ft.Colors.GREEN)
+                cont4.bgcolor=ft.Colors.GREEN_100
+                cont4.border=ft.border.all(1, ft.Colors.GREEN)
+                page.update()
+                colm5.opacity=1
+                pase1=5
+                page.update()
+            
+            else:
+                if limonada3 == False and cont4.bgcolor== ft.Colors.GREEN_100:
+                    colm5.opacity=0
+                    page.update()
+                    await asyncio.sleep(0.32)
+                    contfthetext5.bgcolor=ft.Colors.RED_300
+                    contfthetext5.border=ft.border.all(1, ft.Colors.RED)
+                    cont4.bgcolor=ft.Colors.RED_100
+                    cont4.border=ft.border.all(1, ft.Colors.RED)
+                    page.update()
+                colm5.opacity=1
                 page.update()
 
         page.update()
