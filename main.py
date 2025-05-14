@@ -21,11 +21,6 @@ def main(page: ft.Page):
         
         if colm1.opacity==0:
             pase1=0
-            pase2=0
-            pase3=0
-            pase4=0
-            pase5=0
-            pase6=0
 
             limonada=False
             limonada1=False
@@ -52,37 +47,48 @@ def main(page: ft.Page):
             limonada1=False
 
         else:
-            limonada1=True
+
+            if limonada==True:
+                limonada1=True
+                pase1=2
+        
+        
+
+        page.update()
  
         lo = any(char.isupper() for char in tf.value)
 
         if lo:
-            limonada2=False
-            
+
+            if limonada1==True:
+                limonada2=True
+                pase1=3
         else:
-            limonada3=True
+            limonada2=False
+        
 
         lo3 = any(char.islower() for char in tf.value)
         if lo3:
-            limonada3=False
+            
+            limonada3=True
+            
             
         else:
-            limonada3=True
+            limonada3=False
+
         x = re.findall("[0-9].*[0-9]", tf.value)
 
         if x:
-            limonada4=True
-
+            if limonada2==True:
+                limonada4=True
+                pase1=4
         else:
             limonada4=False
 
 
         #Animations triggers
-        if pase1 == 1:
-            colm1.opacity=1
-            page.update()
-            await asyncio.sleep(0.35)
-            if limonada==True:
+        if pase1 >= 1:
+            if limonada==True and cont1.bgcolor== ft.Colors.RED_100:
                 colm1.opacity=0
                 page.update()
                 await asyncio.sleep(0.32)
@@ -92,10 +98,14 @@ def main(page: ft.Page):
                 cont1.border=ft.border.all(1, ft.Colors.GREEN)
                 page.update()
                 colm1.opacity=1
+                pase1=2
                 page.update()
+
+            elif limonada==True and cont1.bgcolor== ft.Colors.GREEN_100:
+                pase1=2
                 
             else:
-                if pase1>1:
+                if limonada == False and cont1.bgcolor== ft.Colors.GREEN_100:
                     colm1.opacity=0
                     page.update()
                     await asyncio.sleep(0.32)
@@ -104,12 +114,96 @@ def main(page: ft.Page):
                     cont1.bgcolor=ft.Colors.RED_100
                     cont1.border=ft.border.all(1, ft.Colors.RED)
                     page.update()
-                    colm1.opacity=1
-                    page.update()
+                colm1.opacity=1
+                page.update()
         
-        
-        
+        if pase1 >= 2:
+            if limonada1 == True and cont.bgcolor== ft.Colors.RED_100:
+                colm2.opacity=0
+                page.update()
+                await asyncio.sleep(0.32)
+                contfthetext2.bgcolor=ft.Colors.GREEN_300
+                contfthetext2.border=ft.border.all(1, ft.Colors.GREEN)
+                cont.bgcolor=ft.Colors.GREEN_100
+                cont.border=ft.border.all(1, ft.Colors.GREEN)
+                page.update()
+                colm2.opacity=1
+                pase1=3
+                page.update()
+            
+            elif limonada1==True and cont.bgcolor== ft.Colors.GREEN_100:
+                pase1=3
 
+            else:
+                if limonada1 == False and cont.bgcolor== ft.Colors.GREEN_100:
+                    colm2.opacity=0
+                    page.update()
+                    await asyncio.sleep(0.32)
+                    contfthetext2.bgcolor=ft.Colors.RED_300
+                    contfthetext2.border=ft.border.all(1, ft.Colors.RED)
+                    cont.bgcolor=ft.Colors.RED_100
+                    cont.border=ft.border.all(1, ft.Colors.RED)
+                    page.update()
+                colm2.opacity=1
+                page.update()
+
+        if pase1 >= 3:
+            if limonada2 == True and cont2.bgcolor== ft.Colors.RED_100:
+                colm3.opacity=0
+                page.update()
+                await asyncio.sleep(0.32)
+                contfthetext3.bgcolor=ft.Colors.GREEN_300
+                contfthetext3.border=ft.border.all(1, ft.Colors.GREEN)
+                cont2.bgcolor=ft.Colors.GREEN_100
+                cont2.border=ft.border.all(1, ft.Colors.GREEN)
+                page.update()
+                colm3.opacity=1
+                pase1=4
+                page.update()
+            
+            elif limonada2==True and cont2.bgcolor== ft.Colors.GREEN_100:
+                pase1=4
+
+            else:
+                if limonada2 == False and cont2.bgcolor== ft.Colors.GREEN_100:
+                    colm3.opacity=0
+                    page.update()
+                    await asyncio.sleep(0.32)
+                    contfthetext3.bgcolor=ft.Colors.RED_300
+                    contfthetext3.border=ft.border.all(1, ft.Colors.RED)
+                    cont2.bgcolor=ft.Colors.RED_100
+                    cont2.border=ft.border.all(1, ft.Colors.RED)
+                    page.update()
+                colm3.opacity=1
+                page.update()
+
+
+        if pase1 >= 4:
+            if limonada4 == True and cont3.bgcolor== ft.Colors.RED_100:
+                colm4.opacity=0
+                page.update()
+                await asyncio.sleep(0.32)
+                contfthetext4.bgcolor=ft.Colors.GREEN_300
+                contfthetext4.border=ft.border.all(1, ft.Colors.GREEN)
+                cont3.bgcolor=ft.Colors.GREEN_100
+                cont3.border=ft.border.all(1, ft.Colors.GREEN)
+                page.update()
+                colm4.opacity=1
+                pase1=5
+                page.update()
+            
+            else:
+                if limonada4 == False and cont3.bgcolor== ft.Colors.GREEN_100:
+                    colm4.opacity=0
+                    page.update()
+                    await asyncio.sleep(0.32)
+                    contfthetext4.bgcolor=ft.Colors.RED_300
+                    contfthetext4.border=ft.border.all(1, ft.Colors.RED)
+                    cont3.bgcolor=ft.Colors.RED_100
+                    cont3.border=ft.border.all(1, ft.Colors.RED)
+                    page.update()
+                colm4.opacity=1
+                page.update()
 
         page.update()
 
@@ -124,7 +218,9 @@ def main(page: ft.Page):
                     multiline=True,
                     hint_text="Enter your password here",
                     border_radius=10,
-                    on_change=mainactions)
+                    on_change=mainactions,
+                    password=True,
+                    can_reveal_password=True)
     
     t2=ft.Text(value="The password must have a special character",
                size=15, 
@@ -241,7 +337,7 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
-    #a
+ 
     cont= ft.Container(content=t2, 
                        bgcolor=ft.Colors.RED_100, 
                        animate_opacity=300, 
@@ -280,7 +376,7 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
-    
+    check=ft.ElevatedButton(text="Check password",visible=True)
     colm1= ft.Column(controls=[contfthetext,cont1],spacing=0, animate_opacity=300, opacity= 0)
     colm2= ft.Column(controls=[contfthetext2,cont],spacing=0, animate_opacity=300, opacity= 0)
     colm3= ft.Column(controls=[contfthetext3,cont2],spacing=0, animate_opacity=300, opacity= 0)
@@ -289,7 +385,7 @@ def main(page: ft.Page):
     # colm6= ft.Column(controls=[contfthetext5,cont5],spacing=0, animate_opacity=300, opacity= 0)
 
     colm = ft.Column(controls=[colm1, colm2, colm3, colm4, colm5])
-    x=page.add(t,tf,colm)
+    x=page.add(t,tf,check,colm)
 
 
 ft.app(target=main, assets_dir="assets")
