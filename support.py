@@ -426,18 +426,65 @@ def main(page: ft.Page):
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
     
-    lacabra=ft.Video(playlist=ft.VideoMedia(resource=r"C:\Users\foxyg\OneDrive\Desktop\Python\Homeworks 4th period\The last one\assets\Mondongo.mp4"
-    ""), visible=True, autoplay=True, width=1000, height=500)
-    check=ft.ElevatedButton(text="Check password",visible=True, on_click=checks)
-    colm1= ft.Column(controls=[contfthetext,cont1],spacing=0, animate_opacity=300, opacity= 0)
-    colm2= ft.Column(controls=[contfthetext2,cont],spacing=0, animate_opacity=300, opacity= 0)
-    colm3= ft.Column(controls=[contfthetext3,cont2],spacing=0, animate_opacity=300, opacity= 0)
-    colm4= ft.Column(controls=[contfthetext4,cont3],spacing=0, animate_opacity=300, opacity= 0)
-    colm5= ft.Column(controls=[contfthetext5,cont4],spacing=0, animate_opacity=300, opacity= 0)
-    # colm6= ft.Column(controls=[contfthetext5,cont5],spacing=0, animate_opacity=300, opacity= 0)
+    lacabra=ft.Video(playlist=ft.VideoMedia(resource=r"C:\Users\foxyg\OneDrive\Desktop\Python\Homeworks 4th period\The last one\assets\Mondongo.mp4"), visible=True, autoplay=True, width=800, height=400)
 
-    colm = ft.Column(controls=[colm1, colm2, colm3, colm4, colm5])
+    check=ft.ElevatedButton(text="Check password",visible=True, on_click=checks)
+
+    colm1= ft.Column(controls=[
+                                contfthetext,
+                                cont1
+                            ],
+                    spacing=0, 
+                    animate_opacity=300, 
+                    opacity= 0
+                )
+    
+    colm2= ft.Column(controls=[
+                                contfthetext2,
+                                cont
+                            ],
+                    spacing=0, 
+                    animate_opacity=300, 
+                    opacity= 0
+                )
+    colm3= ft.Column(controls=[
+                                contfthetext3,
+                                cont2
+                            ],
+                    spacing=0, 
+                    animate_opacity=300, 
+                    opacity= 0
+                )       
+    
+    colm4= ft.Column(controls=[
+                                contfthetext4,
+                                cont3
+                            ],
+                    spacing=0, 
+                    animate_opacity=300, 
+                    opacity= 0
+                )
+    
+    colm5= ft.Column(controls=[
+                                contfthetext5,
+                                cont4
+                            ],
+                    spacing=0, 
+                    animate_opacity=300, 
+                    opacity= 0
+                )
+
+    colm = ft.Column(controls=[
+                                colm1, 
+                                colm2, 
+                                colm3, 
+                                colm4, 
+                                colm5
+                            ]
+                    )
+    
     sld=ft.Stack(controls=[colm,lacabra])
+
     x=page.add(t,tf,check,sld)
 
 
