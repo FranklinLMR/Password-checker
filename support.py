@@ -4,6 +4,7 @@ import asyncio
 
 
 
+
 def main(page: ft.Page):
     
     page.title= "pAsWoRd ChEcKeR"
@@ -16,11 +17,11 @@ def main(page: ft.Page):
         "Monocraft" : "Monocraft.ttc"
     }   
     l=0
-    
 
-   
+
+
     async def mainactions(e):
-        
+        lacabra.visible=False
         if colm1.opacity==0:
             pase1=0
 
@@ -56,7 +57,7 @@ def main(page: ft.Page):
         
 
         page.update()
- 
+
         lo = any(char.isupper() for char in tf.value)
 
         if lo:
@@ -242,6 +243,7 @@ def main(page: ft.Page):
         page.update()
 
     async def checks(e):
+        lacabra.visible=False
         if cont.bgcolor==ft.Colors.GREEN_100 and cont1.bgcolor==ft.Colors.GREEN_100 and cont2.bgcolor ==ft.Colors.GREEN_100 and cont3.bgcolor==ft.Colors.GREEN_100 and cont4.bgcolor==ft.Colors.GREEN_100:
             t.value="Perfect password!"
         else:
@@ -255,8 +257,8 @@ def main(page: ft.Page):
 
 
     t=ft.Text(value="pAsWoRd ChEcKeR", 
-              size= 70, 
-              font_family="Monocraft",)
+            size= 70, 
+            font_family="Monocraft",)
 
     tf=ft.TextField(label="",
                     border=ft.InputBorder.OUTLINE,
@@ -270,31 +272,31 @@ def main(page: ft.Page):
                     can_reveal_password=True)
     
     t2=ft.Text(value="The password must have a special character",
-               size=15, 
-               color=ft.colors.BLACK,
-               animate_opacity=300,
-               font_family="Monocraft")
+            size=15, 
+            color=ft.colors.BLACK,
+            animate_opacity=300,
+            font_family="Monocraft")
 
     t3=ft.Text(value="The password does not have any upper case",
-               size=15, 
-               color=ft.colors.BLACK,
-               animate_opacity=300,
-               font_family="Monocraft")   
+            size=15, 
+            color=ft.colors.BLACK,
+            animate_opacity=300,
+            font_family="Monocraft")   
 
     t4=ft.Text(value="The password does not contain at least 2 numbers",size=15, 
-               color=ft.colors.BLACK,
-               animate_opacity=300,
-               font_family="Monocraft")
+            color=ft.colors.BLACK,
+            animate_opacity=300,
+            font_family="Monocraft")
     
     t5=ft.Text(value="The password does not contain at least 1 lowercase letter",
-               size=15, 
-               color=ft.colors.BLACK,animate_opacity=300,
-               font_family="Monocraft")
+            size=15, 
+            color=ft.colors.BLACK,animate_opacity=300,
+            font_family="Monocraft")
     
     t12=ft.Text(value="Your password must be at least 8 characters.",
-               size=15, 
-               color=ft.colors.BLACK,animate_opacity=300,
-               font_family="Monocraft")
+            size=15, 
+            color=ft.colors.BLACK,animate_opacity=300,
+            font_family="Monocraft")
     
 
     contfthetext = ft.Container(content=
@@ -384,16 +386,16 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
- 
+
     cont= ft.Container(content=t2, 
-                       bgcolor=ft.Colors.RED_100, 
-                       animate_opacity=300, 
-                       opacity= 1, 
-                       width= 600, 
-                       height=50, 
-                       alignment=ft.alignment.center, 
-                       border= ft.border.all(1, ft.Colors.RED), 
-                       border_radius=10)  
+                    bgcolor=ft.Colors.RED_100, 
+                    animate_opacity=300, 
+                    opacity= 1, 
+                    width= 600, 
+                    height=50, 
+                    alignment=ft.alignment.center, 
+                    border= ft.border.all(1, ft.Colors.RED), 
+                    border_radius=10)  
     
     cont2= ft.Container(content=t3, 
                         bgcolor=ft.Colors.RED_100, 
@@ -423,6 +425,9 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
+    
+    lacabra=ft.Video(playlist=ft.VideoMedia(resource=r"C:\Users\foxyg\OneDrive\Desktop\Python\Homeworks 4th period\The last one\assets\Mondongo.mp4"
+    ""), visible=True, autoplay=True, width=1000, height=500)
     check=ft.ElevatedButton(text="Check password",visible=True, on_click=checks)
     colm1= ft.Column(controls=[contfthetext,cont1],spacing=0, animate_opacity=300, opacity= 0)
     colm2= ft.Column(controls=[contfthetext2,cont],spacing=0, animate_opacity=300, opacity= 0)
@@ -432,7 +437,8 @@ def main(page: ft.Page):
     # colm6= ft.Column(controls=[contfthetext5,cont5],spacing=0, animate_opacity=300, opacity= 0)
 
     colm = ft.Column(controls=[colm1, colm2, colm3, colm4, colm5])
-    x=page.add(t,tf,check,colm)
+    sld=ft.Stack(controls=[colm,lacabra])
+    x=page.add(t,tf,check,sld)
 
 
 ft.app(target=main, assets_dir="assets")
