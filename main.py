@@ -17,6 +17,8 @@ def main(page: ft.Page):
     }   
     l=0
     
+
+   
     async def mainactions(e):
         
         if colm1.opacity==0:
@@ -27,7 +29,6 @@ def main(page: ft.Page):
             limonada2=False
             limonada3=False
             limonada4=False
-            limonada5=False
 
         tf.value=e.control.value
         
@@ -67,14 +68,6 @@ def main(page: ft.Page):
             limonada2=False
         
 
-        lo3 = any(char.islower() for char in tf.value)
-        if lo3:
-            
-            limonada3=True
-            
-            
-        else:
-            limonada3=False
 
         x = re.findall("[0-9].*[0-9]", tf.value)
 
@@ -85,6 +78,16 @@ def main(page: ft.Page):
         else:
             limonada4=False
 
+        lo3 = any(char.islower() for char in tf.value)
+        if lo3:
+            
+            if limonada4==True:
+                limonada3=True
+                pase1=5
+            
+            
+        else:
+            limonada3=False
 
         #Animations triggers
         if pase1 >= 1:
@@ -235,7 +238,21 @@ def main(page: ft.Page):
                 colm5.opacity=1
                 page.update()
 
+
         page.update()
+
+    async def checks(e):
+        if cont.bgcolor==ft.Colors.GREEN_100 and cont1.bgcolor==ft.Colors.GREEN_100 and cont2.bgcolor ==ft.Colors.GREEN_100 and cont3.bgcolor==ft.Colors.GREEN_100 and cont4.bgcolor==ft.Colors.GREEN_100:
+            t.value="Perfect password!"
+        else:
+            t.value="The password misses requirements"
+
+        page.update()
+        await asyncio.sleep(2)
+        
+        t.value="pAsWoRd ChEcKeR"
+        page.update()
+
 
     t=ft.Text(value="pAsWoRd ChEcKeR", 
               size= 70, 
@@ -406,7 +423,7 @@ def main(page: ft.Page):
                         alignment=ft.alignment.center, 
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
-    check=ft.ElevatedButton(text="Check password",visible=True)
+    check=ft.ElevatedButton(text="Check password",visible=True, on_click=checks)
     colm1= ft.Column(controls=[contfthetext,cont1],spacing=0, animate_opacity=300, opacity= 0)
     colm2= ft.Column(controls=[contfthetext2,cont],spacing=0, animate_opacity=300, opacity= 0)
     colm3= ft.Column(controls=[contfthetext3,cont2],spacing=0, animate_opacity=300, opacity= 0)
