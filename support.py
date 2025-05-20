@@ -1,6 +1,7 @@
 import flet as ft
 import re
 import asyncio
+import flet_video as ftv
 
 
 
@@ -11,7 +12,7 @@ def main(page: ft.Page):
     page.theme_mode = ft.ThemeMode.LIGHT
     page.padding = 60
     page.horizontal_alignment= ft.CrossAxisAlignment.CENTER
-    page.update()
+    page.update()   
 
     page.fonts = {
         "Monocraft" : "Monocraft.ttc"
@@ -34,7 +35,7 @@ def main(page: ft.Page):
         tf.value=e.control.value
         
 
-        regex = re.compile('[@_!#$%^&*()<>?/\|}{~:]')
+        regex = re.compile('[@_!#$%^&*()<>?/\|.,}{~:]')
 
         y=list(tf.value)
         if len(y)>=8:
@@ -426,7 +427,7 @@ def main(page: ft.Page):
                         border= ft.border.all(1, ft.Colors.RED), 
                         border_radius=10)
     
-    lacabra=ft.Video(playlist=ft.VideoMedia(resource=r"C:\Users\foxyg\OneDrive\Desktop\Python\Homeworks 4th period\The last one\assets\Mondongo.mp4"), visible=True, autoplay=True, width=800, height=400)
+    lacabra=ftv.Video(playlist=[ftv.VideoMedia("assets/Mondongo.mp4")], visible=True, autoplay=True, width=800, height=400, show_controls=False)
 
     check=ft.ElevatedButton(text="Check password",visible=True, on_click=checks)
 
