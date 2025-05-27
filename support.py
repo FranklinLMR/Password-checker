@@ -224,7 +224,7 @@ def main(page: ft.Page):
                 cont4.border=ft.border.all(1, ft.Colors.GREEN)
                 page.update()
                 colm5.opacity=1
-                pase1=5
+                pase1=6
                 page.update()
             
             else:
