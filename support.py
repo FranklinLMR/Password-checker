@@ -233,7 +233,7 @@ def main(page: ft.Page):
                     page.update()
                     await asyncio.sleep(0.32)
                     contfthetext5.bgcolor=ft.Colors.RED_300
-                    contfthetext5.border=ft.border.all(1, ft.Colors.RED)
+                    contfthetext5.border=ft.border.all(1,ft.Colors.RED)
                     cont4.bgcolor=ft.Colors.RED_100
                     cont4.border=ft.border.all(1, ft.Colors.RED)
                     page.update()
